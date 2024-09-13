@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora IMC</title>
+</head>
+<body>
+    <main id="conteiner_body">
+        <h1 id="titulo">Calculadora IMC</h1>
+
+        <h3 id="formula">Fórmula: IMC = peso / (altura * altura)</h3>
+
+        <div id="conteiner_inputs">
+            <div id="input_peso" class="inputs">
+                <input type="number" id="peso" placeholder="Digite peso, em quilos.">
+                Kg (ex.: 79.1)
+            </div>
+            <div id="input_altura" class="inputs">
+                <input type="number" id="altura" placeholder="Digite altura, em metros.">
+                m (ex.: 1.76)
+            </div>
+        </div>
+
+        <div id="btn_calcula">
+            <button type="button" onclick="calcularIMC()">Calcular IMC</button>
+        </div>
+
+        <h2 id="resultado"></h2>
+    </main>
+
+    <script>
+        function calcularIMC() {
+            const peso = parseFloat(document.getElementById('peso').value);
+            const altura = parseFloat(document.getElementById('altura').value);
+
+            if (!peso || !altura || altura <= 0) {
+                document.getElementById('resultado').textContent = "Por favor, insira valores válidos.";
+                return;
+            }
+
+            const imc = peso / (altura * altura);
+            document.getElementById('resultado').textContent = `Seu IMC é: ${imc.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
